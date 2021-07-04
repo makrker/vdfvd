@@ -111,7 +111,7 @@ select fav in "${foods[@]}"; do
 	    echo "bye bye you look cute today!"
 	    break
 	    ;;
-        *) echo "invalid option man,uwu maybe you can try again? uwu $REPLY";;
+        *) echo " you did the false $REPLY";;
     esac
 done
 cd $HOME
@@ -149,6 +149,6 @@ select fav in "${foods[@]}"; do
 	          echo "User requested exit"
 	           break
                	    ;;
-             *) echo "invalid option $REPLY";;
+             *) echo "invalid option  stooped $REPLY";;
     esac
 done
