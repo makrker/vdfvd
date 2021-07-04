@@ -1,3 +1,4 @@
+#!/bin/bash
 
 foods=("KDE plasma" "GNOME" "Tacos facts" "Quit")
 select fav in "${foods[@]}"; do
@@ -42,5 +43,5 @@ select fav in "${foods[@]}"; do
 	    break
 	    ;;
 
-    esac
+      esac
 done
