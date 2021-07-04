@@ -2,7 +2,7 @@
 
 #This is made by Mark 
 #how he stand on 400 ping lolaoalaoalaao
-
+#PRobably one of the worst shell but it works so shut the fuck up
 echo This will install all shit that i like inn this computer named $USER at $HOSTNAME
 
 now=$(date +"%r")
