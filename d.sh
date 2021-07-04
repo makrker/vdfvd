@@ -19,7 +19,9 @@ sudo apt install git curl gcc  -y
 echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.profile
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 sudo apt install build-essential -y
-
+brew update 
+brew upgrade
+brew install gcc 
 brew install --cask hyper
  brew tap jandedobbeleer/oh-my-posh
  brew install oh-my-posh
