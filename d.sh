@@ -8,7 +8,6 @@ echo This will install all shit that i like in this computer named $USER at $HOS
 now=$(date +"%r")
 
 echo -e "\033[33;34m Current time : $now"
-echo -e "\033[33;36m There is no GPL-V3 or any license but you have to agree that automatically that you are a susy if you run or edit  this script at any entities lmao"
 sleep 1s
 
 sudo apt install git curl gcc  -y
