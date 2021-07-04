@@ -12,9 +12,14 @@ echo -e "\033[33;36m There is no GPL-V3 or any license but you have to agree tha
 sleep 1s
 
 sudo apt install git curl gcc  -y
-
+ hostnamectl set-hostname xzx --static
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.profile
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+sudo apt install build-essential -y
+
 brew install --cask hyper
  brew tap jandedobbeleer/oh-my-posh
  brew install oh-my-posh
