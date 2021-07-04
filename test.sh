@@ -41,6 +41,6 @@ select fav in "${foods[@]}"; do
 	    echo "bye bye you look cute today!"
 	    break
 	    ;;
-        *) echo "invalid option man,uwu maybe you can try again? uwu $REPLY";;
+
     esac
 done
