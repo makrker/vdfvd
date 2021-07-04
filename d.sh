@@ -1,9 +1,9 @@
 #!/bin/bash
 
-#This is made by Mark aka a genius furry
+#This is made by Mark 
 #how he stand on 400 ping lolaoalaoalaao
 
-echo This will install all shit that i like in this computer named $USER at $HOSTNAME
+echo This will install all shit that i like inn this computer named $USER at $HOSTNAME
 
 now=$(date +"%r")
 
@@ -15,20 +15,16 @@ sudo apt install git curl gcc  -y
 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.profile
+echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.bashrc 
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 sudo apt install build-essential -y
 brew update 
 brew upgrade
 brew install gcc 
-brew install --cask hyper
  brew tap jandedobbeleer/oh-my-posh
  brew install oh-my-posh
  brew install node
- brew install --cask librewolf
- npm i seti-hyper
- cd node_modules
- hyper i seti-hyper
+
  sed -i '1i eval "$(oh-my-posh --init --shell bash --config ~/based/asees.omp.json)" ' .bashrc
 
 sudo add-apt-repository ppa:alexlarsson/flatpak -y
@@ -36,6 +32,10 @@ sudo apt update -y;sudo apt upgrade -y
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
  cd $HOME
 wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
+flatpak install flathub io.gitlab.librewolf-community
+wget https://github-releases.githubusercontent.com/62367558/9e207200-7299-11e9-9741-51b46b359795?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20210704%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210704T141740Z&X-Amz-Expires=300&X-Amz-Signature=97cfc45a581a1e3ff3d87cd6039a904ceb198e8de0c2dc10620ce0cb58eb4bf2&X-Amz-SignedHeaders=host&actor_id=86200419&key_id=0&repo_id=62367558&response-content-disposition=attachment%3B%20filename%3Dhyper_3.0.2_amd64.deb&response-content-type=application%2Foctet-stream
+
+dpkg -i hyper_3.0.2_amd64.deb
 hyper
 sleep 1s
 killall hyper
@@ -43,6 +43,15 @@ rm -rf .hyper.js
 cd based
 mv hyper.js /home/$USER/.hyper.js
 cd #
+
+
+ npm i seti-hyper
+hyper i seti-hyper
+
+cd node_modules 
+hyper i seti-hyper
+cd #
+
 
 echo "y"
 flatpak install flathub com.github.wwmm.pulseeffects
