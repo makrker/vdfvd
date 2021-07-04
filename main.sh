@@ -11,7 +11,7 @@ echo -e "\033[33;34m Current time : $now"
 sleep 1s
 
 sudo apt install git curl gcc  -y
- hostnamectl set-hostname xzx --static
+ hostnamectl set-hostname xzxs --static
 sudo apt install wget make  -y
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
@@ -44,7 +44,7 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
 flatpak install flathub io.gitlab.librewolf-community
 wget https://github.com/vercel/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
-dpkg -i hyper_3.0.2_amd64.deb
+sudo dpkg -i hyper_3.0.2_amd64.deb
 hyper
 sleep 1s
 killall hyper
