@@ -6,4 +6,4 @@ wget https://raw.githubusercontent.com/makrker/vdfvd/main/main.sh
 
 chmod +x d.sh
 
-./d.sh
+./main.sh
