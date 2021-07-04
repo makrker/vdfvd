@@ -4,6 +4,6 @@
  cd #
 wget https://raw.githubusercontent.com/makrker/vdfvd/main/main.sh
 
-chmod +x d.sh
+chmod +x main.sh
 
 ./main.sh
