@@ -32,7 +32,7 @@ sudo apt update -y;sudo apt upgrade -y
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
  cd $HOME
  flatpak install org.gnome.Platform/x86_64/3.38 
- 
+ sleep 1s 
 git clone https://github.com/makrker/based.git
 
  sed -i '1i eval "$(oh-my-posh --init --shell bash --config ~/based/asees.omp.json)" ' .bashrc
@@ -45,8 +45,12 @@ wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
 flatpak install flathub io.gitlab.librewolf-community
 wget https://github.com/vercel/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
 sudo dpkg -i hyper_3.0.2_amd64.deb
+
+sudo apt update 
+sleep 2s
+
 hyper
-sleep 1s
+sleep 3s
 killall hyper
 rm -rf .hyper.js
 cd based
