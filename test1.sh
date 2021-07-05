@@ -1,10 +1,10 @@
 #!/bin/bash
 PS3='Please enter your choice: '
-options=("Option 1" "Option 2" "Option 3" "Quit")
+options=("KDE Plasma" "Gnome" "Taco" "Quit")
 select opt in "${options[@]}"
 do
     case $opt in
-        "Option 1")
+        "KDE Plasma")
              git clone https://github.com/vinceliuice/ChromeOS-kde.git
             cd ChromeOS-kde
             ./install.sh
@@ -22,8 +22,9 @@ do
             echo "this will install cursor"
             echo "select in global theme in settings!"
             sleep 2s
+            break 
             ;;
-        "Option 2")
+        "Gnome")
 git clone https://github.com/vinceliuice/Orchis-theme.git
             cd Orchis-theme
             ./install.sh
@@ -34,10 +35,12 @@ git clone https://github.com/vinceliuice/Orchis-theme.git
             git clone https://github.com/vinceliuice/Vimix-cursors.git
             cd Vimix-cursors
             ./install.sh
+            sudo apt install gnome-tweak-tool 
+            sudo apt --fix-missing install 
              break
             ;;
-        "Option 3")
-            echo "you chose choice $REPLY which is $opt"
+        "Taco")
+            echo "Tacos Are Really, Really Old While there is some debate over when exactly the first taco was created, most experts state that the first taco was actually invented somewhere between 1,000 and 500 B.C. At the time, the taco was more about having an edible spoon and since has morphed into the dish that we know today."
             ;;
         "Quit")
             break

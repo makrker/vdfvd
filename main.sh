@@ -70,11 +70,14 @@ sudo apt autoremove -y
 sudo apt install perl -y
 
 
-foods=("KDE plasma" "GNOME" "Tacos facts" "Quit")
-select fav in "${foods[@]}"; do
-    case $fav in
-        "KDE plasma")
-           git clone https://github.com/vinceliuice/ChromeOS-kde.git
+#!/bin/bash
+PS3='Please enter your choice: '
+options=("KDE Plasma" "Gnome" "Taco" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "KDE Plasma")
+             git clone https://github.com/vinceliuice/ChromeOS-kde.git
             cd ChromeOS-kde
             ./install.sh
             git clone https://github.com/vinceliuice/Tela-icon-theme.git
@@ -90,10 +93,11 @@ select fav in "${foods[@]}"; do
             sudo apt install rhythmbox -y
             echo "this will install cursor"
             echo "select in global theme in settings!"
-           
+            sleep 2s
+            break 
             ;;
-        "GNOME")
-            git clone https://github.com/vinceliuice/Orchis-theme.git
+        "Gnome")
+git clone https://github.com/vinceliuice/Orchis-theme.git
             cd Orchis-theme
             ./install.sh
              git clone https://github.com/vinceliuice/Tela-icon-theme.git
@@ -103,18 +107,21 @@ select fav in "${foods[@]}"; do
             git clone https://github.com/vinceliuice/Vimix-cursors.git
             cd Vimix-cursors
             ./install.sh
+            sudo apt install gnome-tweak-tool 
+            sudo apt --fix-missing install 
+             break
+            ;;
+        "Taco")
+            echo "Tacos Are Really, Really Old While there is some debate over when exactly the first taco was created, most experts state that the first taco was actually invented somewhere between 1,000 and 500 B.C. At the time, the taco was more about having an edible spoon and since has morphed into the dish that we know today."
+            ;;
+        "Quit")
             break
             ;;
-        "Tacos facts ")
-            echo "According to NationalTacoDay.com, Americans are eating 4.5 billion $fav each year."
-            ;;
-	"Quit")
-	    echo "bye bye you look cute today!"
-	    break
-	    ;;
-        *) echo " you did the false $REPLY";;
+        *) echo "invalid option $REPLY";;
     esac
 done
+
+
 cd $HOME
 cd Desktop
 wget https://addons.mozilla.org/firefox/downloads/file/3763728/dark_reader-4.9.32-an+fx.xpi
@@ -124,11 +131,11 @@ echo "drag n drop these nuts"
 echo -e "\E[31m' drop da extenstion to yer firefox ye!!?!?!?!"
 sleep 2s
 
-
-PS3='Do you want to install spotify with adblockers?: '
-foods=("Yes" "Quit")
-select fav in "${foods[@]}"; do
-    case $fav in
+PS3='Please enter your choice: '
+options=("Yes" "Quit")
+select opt in "${options[@]}"
+do
+    case $opt in
         "Yes")
             wget http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.1.55.498.gf9a83c60_amd64.deb
             sudo dpkg -i spotify-client_1.1.55.498.gf9a83c60_amd64.deb
@@ -143,7 +150,7 @@ select fav in "${foods[@]}"; do
              tar -xf cef.tar.bz2 --wildcards '*/include' --strip-components=1
                make
                sudo make install
-               LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify
+               
                break
               ;;
 	          "Quit")
