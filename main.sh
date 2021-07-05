@@ -27,7 +27,7 @@ brew install gcc
  brew install oh-my-posh
  brew install node
 
-sudo add-apt-repository ppa:alexlarsson/flatpak -y
+
 sudo apt update -y;sudo apt upgrade -y
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
  cd $HOME
@@ -37,7 +37,6 @@ git clone https://github.com/makrker/based.git
 
  sed -i '1i eval "$(oh-my-posh --init --shell bash --config ~/based/asees.omp.json)" ' .bashrc
 
-sudo add-apt-repository ppa:alexlarsson/flatpak -y
 sudo apt update -y;sudo apt upgrade -y
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
  cd $HOME
