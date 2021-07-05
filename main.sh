@@ -92,7 +92,7 @@ select fav in "${foods[@]}"; do
             sudo apt install rhythmbox -y
             echo "this will install cursor"
             echo "select in global theme in settings!"
-            break
+           
             ;;
         "GNOME")
             git clone https://github.com/vinceliuice/Orchis-theme.git
