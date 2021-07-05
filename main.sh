@@ -60,6 +60,8 @@ sleep 2s
 rm -rf .hyper.js
 cd based
 mv hyper.js /home/$USER/.hyper.js
+gsettings set org.gnome.desktop.background picture-uri file file:///home/$USER/based/blue-texture-background-blue-paint-texture-painted-wall-stone-texture.jpg
+sudo mv Fira Code Regular Nerd Font Complete Mono.otf /usr/share/fonts/opentype
 cd #
 
 
