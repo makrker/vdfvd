@@ -1,5 +1,4 @@
 #!/bin/bash
-
 cmd=(dialog --separate-output --checklist "Select options:" 22 76 16)
 options=(1 "KDE" off    # any option can be set to default to "on"
          2 "GNOME" off
