@@ -10,4 +10,3 @@ How to use it
 curl https://raw.githubusercontent.com/makrker/vdfvd/main/start.sh | bash 
 Copy to your terminal 
 
-
