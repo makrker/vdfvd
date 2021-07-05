@@ -1,6 +1,12 @@
-# vdfv
+# vdfv 
+still beta! 1.9
 A new shell repo
-Prequisites: PC (Has APT : ubuntu,zorinOS or other)
+
+
+Prequisites:
+
+
+PC (Has APT : ubuntu,zorinOS or other)
              Curl 
              Bash
              WiFi
