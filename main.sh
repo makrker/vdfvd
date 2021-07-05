@@ -23,9 +23,7 @@ sudo apt install build-essential -y
 brew update 
 brew upgrade
 brew install gcc 
- brew tap jandedobbeleer/oh-my-posh
- brew install oh-my-posh
- brew install node
+
 
 
 sudo apt update -y;sudo apt upgrade -y
@@ -48,12 +46,12 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 
 wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
 
-flatpak install flathub io.gitlab.librewolf-community
+
 
 wget https://github.com/vercel/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
 
 sudo dpkg -i hyper_3.0.2_amd64.deb
-
+sudo dpkg -i steam_latest.deb
 sudo apt update 
 sleep 2s
 
@@ -61,10 +59,10 @@ rm -rf .hyper.js
 cd based
 mv hyper.js /home/$USER/.hyper.js
 gsettings set org.gnome.desktop.background picture-uri file file:///home/$USER/based/blue-texture-background-blue-paint-texture-painted-wall-stone-texture.jpg
-sudo mv Fira Code Regular Nerd Font Complete Mono.otf /usr/share/fonts/opentype
+sudo mv Firacode.ttf /usr/share/fonts/truetype
 cd #
 
-
+flatpak install flathub io.gitlab.librewolf-community
 flatpak install flathub com.github.wwmm.pulseeffects
 
 
@@ -72,7 +70,7 @@ sudo apt autoremove -y
 sudo apt install perl -y
 
 
-#!/bin/bash
+
 PS3='Please enter your choice: '
 options=("KDE Plasma" "Gnome" "Taco" "Quit")
 select opt in "${options[@]}"
