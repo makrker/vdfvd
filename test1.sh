@@ -1,9 +1,9 @@
 #!/bin/bash
 
 cmd=(dialog --separate-output --checklist "Select options:" 22 76 16)
-options=(1 "kinda sussed" off    # any option can be set to default to "on"
-         2 "Option 2" off
-         3 "Option 3" off
+options=(1 "KDE" off    # any option can be set to default to "on"
+         2 "GNOME" off
+         3 "i have no clue lold" off
          4 "Option 4" off)
 choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
 clear
