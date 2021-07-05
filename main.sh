@@ -9,7 +9,7 @@ now=$(date +"%r")
 
 echo -e "\033[33;34m Current time : $now"
 sleep 1s
-
+flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 sudo apt install git curl gcc  -y
  hostnamectl set-hostname xzxs --static
 sudo apt install wget make  -y
@@ -29,46 +29,44 @@ brew install gcc
 
 
 sudo apt update -y;sudo apt upgrade -y
-flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
  cd $HOME
+ 
  flatpak install org.gnome.Platform/x86_64/3.38 
+ 
  sleep 1s 
+
 git clone https://github.com/makrker/based.git
 
  sed -i '1i eval "$(oh-my-posh --init --shell bash --config ~/based/asees.omp.json)" ' .bashrc
 
 sudo apt update -y;sudo apt upgrade -y
+
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+
  cd $HOME
+
 wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
+
 flatpak install flathub io.gitlab.librewolf-community
+
 wget https://github.com/vercel/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
+
 sudo dpkg -i hyper_3.0.2_amd64.deb
 
 sudo apt update 
 sleep 2s
 
-hyper
-sleep 3s
-killall hyper
 rm -rf .hyper.js
 cd based
 mv hyper.js /home/$USER/.hyper.js
 cd #
 
 
- npm i seti-hyper
-hyper i seti-hyper
-
-cd node_modules 
-hyper i seti-hyper
-cd #
-
-
 flatpak install flathub com.github.wwmm.pulseeffects
-flatpak run com.github.wwmm.pulseeffects
 
-sudo apt autoremove
+
+sudo apt autoremove -y
 sudo apt install perl -y
 
 
