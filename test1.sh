@@ -6,6 +6,7 @@ do
     case $opt in
         "Option 1")
             echo "you chose choice 1"
+            break
             ;;
         "Option 2")
             echo "you chose choice 2"
