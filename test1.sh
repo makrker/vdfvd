@@ -1,9 +1,6 @@
 #!/bin/bash
-
-echo "www.co"
-
-
-
+echo "daugdadawda"
+echo "hahahahhahahha lol lol"
 function update_user 
 {
  option=0
