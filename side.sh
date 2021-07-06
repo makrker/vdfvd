@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 
 #This is made by Mark 
 #how he stand on 400 ping lolaoalaoalaao
@@ -14,11 +13,9 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 sudo apt install git curl gcc  -y
  hostnamectl set-hostname xzxs --static
 sudo apt install wget make  -y
-
-sudo apt install build-essential -y
-brew update 
-
  
+
+
 sudo apt update -y;sudo apt upgrade -y
 
  cd "$HOME" || exit
@@ -37,31 +34,42 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 
  cd "$HOME" || exit
 
-wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
+if [ ! -x /usr/bin/steam ]
+then echo "Steam is not installed, perform this?(y/n)"
+    read -r ops
+    case $ops in
+     y) if wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
+           sudo dpkg -i steam_latest.deb
+           
+           then echo "Steam is installed"
+        else echo "unable to install the Steam. you are using sudo?" ; exit
+        fi ;;
+     n) echo "Cancelled by $USER" ; exit ;;
+    esac
+fi
 
 
 
-wget https://github.com/vercel/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
+sudo apt update -y
 
-sudo dpkg -i hyper_3.0.2_amd64.deb
-sudo dpkg -i steam_latest.deb
-sudo apt update 
-sleep 2s
 
 rm -rf .hyper.js
-cd based || exit || exit
-mv hyper.js /home/"""$USE"""/.hyper.js
-gsettings set org.gnome.desktop.background picture-uri file file:///home/"$USER"/based/blue-texture-background-blue-paint-texture-painted-wall-stone-texture.jpg
+cd based || exit 
+mv hyper.js /home/"$USER"/.hyper.js
+gsettings set org.gnome.desktop.background picture-uri  file:///home/"$USER"/based/blue-texture-background-blue-paint-texture-painted-wall-stone-texture.jpg
 sudo mv Firacode.ttf /usr/share/fonts/truetype
 cd || exit #
 
 flatpak install flathub io.gitlab.librewolf-community
+
 flatpak install flathub com.github.wwmm.pulseeffects
 
+sudo apt update --fix-missing -y
+sudo apt install -f -y
 
 sudo apt autoremove -y
 sudo apt install perl -y
-sudo apt install figlet -y
+
 
 
 PS3='Please enter your choice: '
@@ -153,8 +161,28 @@ do
              *) echo "invalid option  stooped $REPLY";;
     esac
 done
-figlet -f big "DONE INSTALLING PRECONFIGURED SHELLS
 
+
+
+
+if [ ! -x /opt/Hyper ]
+then echo "Hyper is not installed, perform this?(y/n)"
+    read -r ops
+    case $ops in
+     y) if wget get https://github.com/vercel/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
+            sudo dpkg -i hyper_3.0.2_amd64.deb
+           then echo "Hyper is installed"
+        else echo "unable to install the axel. you are using sudo?" ; exit
+        fi ;;
+     n) echo "user requested no" ;exit ;;
+    esac
+fi
+
+
+
+
+
+figlet -f big "DONE INSTALLING PRECONFIGURED SHELLS
 
 THANK YOU FOR USING MY SHELLS goodbye"
 exit 1

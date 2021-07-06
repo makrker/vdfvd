@@ -44,23 +44,24 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 
  cd "$HOME" || exit
 
-wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
-
-
-
-if ! command -v sudo apt remove hyper &> /dev/null
-then
-   wget get https://github.com/vercel/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
-    sudo dpkg -i hyper_3.0.2_amd64.deb
- else 
-   echo "you have installed command -v"
- 
-
+if [ ! -x /usr/bin/steam ]
+then echo "Steam is not installed, perform this?(y/n)"
+    read -r ops
+    case $ops in
+     y) if wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
+           sudo dpkg -i steam_latest.deb
+           
+           then echo "Steam is installed"
+        else echo "unable to install the Steam. you are using sudo?" ; exit
+        fi ;;
+     n) echo "Cancelled by $USER" ; exit ;;
+    esac
 fi
 
-sudo dpkg -i steam_latest.deb
-sudo apt update 
-sleep 2s
+
+
+sudo apt update -y
+
 
 rm -rf .hyper.js
 cd based || exit 
@@ -70,8 +71,11 @@ sudo mv Firacode.ttf /usr/share/fonts/truetype
 cd || exit #
 
 flatpak install flathub io.gitlab.librewolf-community
+
 flatpak install flathub com.github.wwmm.pulseeffects
 
+sudo apt update --fix-missing -y
+sudo apt install -f -y
 
 sudo apt autoremove -y
 sudo apt install perl -y
@@ -185,15 +189,6 @@ then echo "Hyper is not installed, perform this?(y/n)"
 fi
 
 
-if ! command -v sudo apt remove hyper &> /dev/null
-then
-   wget get https://github.com/vercel/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
-    sudo dpkg -i hyper_3.0.2_amd64.deb
- else 
-   echo "you have installed command -v"
- 
-  
-fi
 
 
 
