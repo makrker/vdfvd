@@ -1,4 +1,4 @@
-# vdfv
+# vdfv Still beta and uncomplete
 A new shell repo
 Prequisites: PC (Has APT : ubuntu,zorinOS or other)
              Curl 
