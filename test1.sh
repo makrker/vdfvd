@@ -1,10 +1,7 @@
 #!/bin/bash
 
 echo "www.co"
-echo "sused "
-sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
-sudo chmod +x /usr/local/bin/oh-my-posh
-echo "jk lol how to sussed "
+
 
 
 function update_user 
