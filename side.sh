@@ -1,4 +1,5 @@
 #!/bin/bash
+#!/bin/bash
 
 #This is made by Mark 
 #how he stand on 400 ping lolaoalaoalaao
@@ -13,19 +14,11 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 sudo apt install git curl gcc  -y
  hostnamectl set-hostname xzxs --static
 sudo apt install wget make  -y
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-
-
-echo "eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"" >> /home/"$USER"/.bashrc 
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 sudo apt install build-essential -y
 brew update 
-brew upgrade
-brew install gcc 
+
  
-
-
 sudo apt update -y;sudo apt upgrade -y
 
  cd "$HOME" || exit
@@ -68,7 +61,7 @@ flatpak install flathub com.github.wwmm.pulseeffects
 
 sudo apt autoremove -y
 sudo apt install perl -y
-
+sudo apt install figlet -y
 
 
 PS3='Please enter your choice: '
