@@ -1,4 +1,5 @@
 #!/bin/bash
+sudo apt install -y nsnake 
 echo "daugdadawda"
 echo "hahahahhahahha lol lol"
 function update_user 
