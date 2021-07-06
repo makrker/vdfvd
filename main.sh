@@ -3,7 +3,7 @@
 #This is made by Mark 
 #how he stand on 400 ping lolaoalaoalaao
 #PRobably one of the worst shell but it works so shut the fuck up #i think no one cares lol
-echo This will install all shit that i like inn this computer named $USER at $HOSTNAME
+echo This will install all shit that i like inn this computer named "$USER" at "$HOSTNAME"
 
 now=$(date +"%r")
 
@@ -17,7 +17,7 @@ sudo apt install wget make  -y
 
 
 
-echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/$USER/.bashrc 
+echo "eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"" >> /home/"$USER"/.bashrc 
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 sudo apt install build-essential -y
 brew update 
@@ -28,7 +28,7 @@ brew install gcc
 
 sudo apt update -y;sudo apt upgrade -y
 
- cd $HOME
+ cd "$HOME" || exit
  
  flatpak install org.gnome.Platform/x86_64/3.38 
  
@@ -36,13 +36,13 @@ sudo apt update -y;sudo apt upgrade -y
 
 git clone https://github.com/makrker/based.git
 
- sed -i '1i eval "$(oh-my-posh --init --shell bash --config ~/based/asees.omp.json)" ' .bashrc
+ sed -i ""1i eval "$(oh-my-posh --init --shell bash --config ~/based/asees.omp.json) " .bashrc
 
 sudo apt update -y;sudo apt upgrade -y
 
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
- cd $HOME
+ cd "$HOME" || exit
 
 wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
 
@@ -56,11 +56,11 @@ sudo apt update
 sleep 2s
 
 rm -rf .hyper.js
-cd based
-mv hyper.js /home/$USER/.hyper.js
-gsettings set org.gnome.desktop.background picture-uri file file:///home/$USER/based/blue-texture-background-blue-paint-texture-painted-wall-stone-texture.jpg
+cd based || exit || exit
+mv hyper.js /home/"""$USE""R"/.hyper.js
+gsettings set org.gnome.desktop.background picture-uri file file:///home/"$USER"/based/blue-texture-background-blue-paint-texture-painted-wall-stone-texture.jpg
 sudo mv Firacode.ttf /usr/share/fonts/truetype
-cd #
+cd || exit #
 
 flatpak install flathub io.gitlab.librewolf-community
 flatpak install flathub com.github.wwmm.pulseeffects
@@ -78,10 +78,10 @@ do
     case $opt in
         "KDE Plasma")
              git clone https://github.com/vinceliuice/ChromeOS-kde.git
-            cd ChromeOS-kde
+            cd ChromeOS-kde || exit
             ./install.sh
             git clone https://github.com/vinceliuice/Tela-icon-theme.git
-            cd Tela-icon-theme
+            cd Tela-icon-theme || exit || exit
             ./install.sh
             sudo apt update
             sudo apt upgrade
@@ -98,14 +98,14 @@ do
             ;;
         "Gnome")
 git clone https://github.com/vinceliuice/Orchis-theme.git
-            cd Orchis-theme
+            cd Orchis-theme || exit || exit
             ./install.sh
              git clone https://github.com/vinceliuice/Tela-icon-theme.git
-            cd Tela-icon-theme
+            cd Tela-icon-theme || exit
             ./install.sh
              echo "this will install cursors"
             git clone https://github.com/vinceliuice/Vimix-cursors.git
-            cd Vimix-cursors
+            cd Vimix-cursors || exit
             ./install.sh
             sudo apt install gnome-tweak-tool 
             sudo apt --fix-missing install 
@@ -122,8 +122,8 @@ git clone https://github.com/vinceliuice/Orchis-theme.git
 done
 
 
-cd $HOME
-cd Desktop
+cd "$HOME" || exit
+cd Desktop || exit
 wget https://addons.mozilla.org/firefox/downloads/file/3763728/dark_reader-4.9.32-an+fx.xpi
 wget https://addons.mozilla.org/firefox/downloads/file/3669496/trace-3.0.5-an+fx.xpi
 wget https://addons.cdn.mozilla.net/user-media/addons/839767/clearurls-1.21.0-an+fx.xpi?filehash=sha256%3Aeb0b199cd478b21bc1fab59be627603946d1474070aa4eb482c44d18c041d974
@@ -145,7 +145,7 @@ do
             sudo apt install gcc -y
             sudo apt install make -y
              git clone https://github.com/abba23/spotify-adblock-linux.git
-               cd spotify-adblock-linux
+               cd spotify-adblock-linux || exit
               wget -O cef.tar.bz2 https://cef-builds.spotifycdn.com/cef_binary_88.1.6%2Bg4fe33a1%2Bchromium-88.0.4324.96_linux64_minimal.tar.bz2
              tar -xf cef.tar.bz2 --wildcards '*/include' --strip-components=1
                make
