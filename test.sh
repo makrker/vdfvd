@@ -9,7 +9,7 @@ then
 
    echo "you have installed command -v"
 
-
+   break
 
 fi
 
