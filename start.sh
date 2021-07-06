@@ -18,7 +18,7 @@ else
  cd || exit #
 wget https://raw.githubusercontent.com/makrker/vdfvd/main/side.sh
 
-chmod +x main.sh
+chmod +x side.sh
 
 ./side.sh
 
