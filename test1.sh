@@ -18,9 +18,9 @@ function update_user
  read option
  echo ""
  case $option in
- 1 ) update_username;  ;;
- 2 ) update_password; press_enter ;;
- 3 ) main_menu; press_enter ;;
+ 1 ) update_username;  yr eehehehe ;;
+ 2 ) update_password; echo ur sussye desktop  ;;
+ 3 ) main_menu;  break ;;
  4 ) break ;;
  * ) tput setf 3;echo "Please enter 1, 2 or 3";tput setf 3; 
  esac
