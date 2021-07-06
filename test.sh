@@ -1,9 +1,14 @@
 #!/bin/bash
 
-date() {
-    if hash apt 2>/dev/null; then
-        sudo apt-get update"$@"
-    else
-        echo "Could not lol" "$@"
-    fi
-}
+if ! command -v apt &> /dev/null
+then
+    echo "COMMAND could not be found"
+   exit
+
+   else 
+
+   echo "you have installed command -v"
+
+
+
+fi
