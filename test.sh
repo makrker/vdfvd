@@ -12,3 +12,5 @@ then
 
 
 fi
+
+sudo apt update -y
