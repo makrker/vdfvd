@@ -15,7 +15,7 @@ else
     echo "You have installed Homebrew"
        
  sudo apt install wget -y
- cd || exit #
+ cd /home/"$USER" || exit 
 wget https://raw.githubusercontent.com/makrker/vdfvd/main/side.sh
 
 chmod +x side.sh

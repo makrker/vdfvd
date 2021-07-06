@@ -65,8 +65,9 @@ sudo apt update -y
 
 rm -rf .hyper.js
 cd based || exit 
+git pull
 mv hyper.js /home/"$USER"/.hyper.js
-gsettings set org.gnome.desktop.background picture-uri  file:///home/"$USER"/based/blue-texture-background-blue-paint-texture-painted-wall-stone-texture.jpg
+gsettings set org.gnome.desktop.background picture-uri  file:///home/"$USER"/based/wallpaper.jpg
 sudo mv Firacode.ttf /usr/share/fonts/truetype
 cd || exit #
 
