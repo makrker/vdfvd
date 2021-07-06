@@ -7,7 +7,6 @@ echo "hahahahhahahha lol lol"
 
 while true
 do
- clear
  echo "Choose an item: a,b or c"
  echo "a: Ask My Name"
  echo "b: Show me Date"
@@ -16,7 +15,7 @@ do
  read -sn1
 case "$REPLY" in
 a) 
-read -p "What is Your Name? " name
+  read -p "What is Your Name? " name
 echo "Your Name is $name"
 ;;
 b)  echo "lol u use kde noob"
