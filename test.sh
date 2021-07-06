@@ -6,7 +6,7 @@ then
    exit
  else 
    echo "you have installed command -v"
-   exit
+   exit 1
 
 fi
 
