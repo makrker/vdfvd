@@ -2,26 +2,29 @@
 sudo apt install -y nsnake 
 echo "daugdadawda"
 echo "hahahahhahahha lol lol"
-function update_user 
-{
- option=0
- until [ "$option" = "3" ]; do
- echo "  1.) Update username"
- echo "  2.) Update password"
- echo "  3.) Return to menu"
-
- echo -n "Enter choice: "
- read -r option
- echo "yihohi"
- case $option in
- 1 ) update_username;  echo "yr eehehehe" ;;
- 2 ) update_password; echo ur "sussye desktop"  ;;
- 3 ) main_menu;  exit ;;
- 4 ) break ;;
- * ) tput setf 3;echo "Please enter 1, 2 or 3";tput setf 3; 
- esac
-#   }
- done
-}
 
 
+
+while true
+do
+ clear
+ echo "Choose an item: a,b or c"
+ echo "a: Ask My Name"
+ echo "b: Show me Date"
+ echo "c: Backup my home directory"
+ echo "d: Exit"
+ read -sn1
+case "$REPLY" in
+a) 
+read -p "What is Your Name? " name
+echo "Your Name is $name"
+;;
+b)  echo "lol u use kde noob"
+;;
+c) echo "i have no clue what a backup is about"
+;;
+d) exit 0
+;;
+esac
+ read -n1 -p "Press any key to continue"
+done
