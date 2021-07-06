@@ -14,9 +14,9 @@ function update_user
 
  echo -n "Enter choice: "
  read -r option
- echo ""
+ echo "yihohi"
  case $option in
- 1 ) update_username;  yr eehehehe ;;
+ 1 ) update_username;  echo "yr eehehehe" ;;
  2 ) update_password; echo ur sussye desktop  ;;
  3 ) main_menu;  break ;;
  4 ) break ;;
