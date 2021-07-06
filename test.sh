@@ -4,12 +4,9 @@ if ! command -v apt &> /dev/null
 then
     echo "COMMAND could not be found"
    exit
-
-   else 
-
+ else 
    echo "you have installed command -v"
-
-   break
+   exit
 
 fi
 
