@@ -1,10 +1,5 @@
 #!/bin/bash
 
-if ! command -v apt &> /dev/null
-then
-    echo "COMMAND could not be found"
-   echo "you have installed COMMAND"
-  else echo 
+type apt >/dev/null 2>&1 || { echo >&2 "I require foo but it's not installed.  Aborting."; exit 1; }
 
-fi
 sudo apt-get update
