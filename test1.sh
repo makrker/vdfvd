@@ -15,7 +15,7 @@ function update_user
  echo "  3.) Return to menu"
 
  echo -n "Enter choice: "
- read option
+ read -r option
  echo ""
  case $option in
  1 ) update_username;  yr eehehehe ;;
@@ -38,12 +38,12 @@ echo "  3.) Update user"
 echo "  4.) Quit"
 
 echo -n "Enter choice: "
-read option
+read -r option
 echo ""
 case $option in
-    1 ) add_user ; press_enter ;;
-    2 ) remove_user ; press_enter ;;
-    3 ) update_user ; press_enter ;;
+    1 ) add_user ; ech0 "daugdadawda"  ;;
+    2 ) remove_user ; echo "ahdahlad" ;;
+    3 ) update_user ; echo "ahdadhdahwhdiedohood" ;;
     4 ) exit;;
     * ) tput setf 4;echo "Please enter 1, 2, 3, or 4";tput setf 4; 
 esac
