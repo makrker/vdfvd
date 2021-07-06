@@ -50,7 +50,7 @@ sleep 2s
 
 rm -rf .hyper.js
 cd based || exit || exit
-mv hyper.js /home/"""$USE""R"/.hyper.js
+mv hyper.js /home/"""$USE"""/.hyper.js
 gsettings set org.gnome.desktop.background picture-uri file file:///home/"$USER"/based/blue-texture-background-blue-paint-texture-painted-wall-stone-texture.jpg
 sudo mv Firacode.ttf /usr/share/fonts/truetype
 cd || exit #
