@@ -7,4 +7,4 @@ then
   else echo 
 
 fi
-echo "you have installed COMMAND"
+sudo apt-get update
