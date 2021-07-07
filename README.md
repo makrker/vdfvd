@@ -1,12 +1,18 @@
-# vdfv Still beta and uncomplete
-A new shell repo
-Prequisites: PC (Has APT : ubuntu,zorinOS or other)
-             Curl 
-             Bash
-             WiFi
+# VDFVD STILL UNCOMPLETE!
 
-How to use it 
+### this is bash shell file for configuring all your needs
 
-curl https://raw.githubusercontent.com/makrker/vdfvd/main/start.sh | bash 
-Copy to your terminal 
+@
+
+> to start simply wget https://raw.githubusercontent.com/makrker/vdfvd/main/start.sh
+> 
+> chmod +x start.sh 
+> 
+> ./start.sh
+
+
+
+
+
+
 
