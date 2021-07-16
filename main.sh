@@ -83,7 +83,6 @@ rm -rf .hyper.js
 cd based || exit 
 git pull
 mv hyper.js /home/"$USER"/.hyper.js
-gsettings set org.gnome.desktop.background picture-uri  file:///home/"$USER"/based/wallpaper.jpg
 sudo mv Firacode.ttf /usr/share/fonts/truetype
 cd || exit #
 
@@ -119,6 +118,16 @@ do
             sudo apt update
             sudo apt upgrade
             sudo apt install rhythmbox -y
+            dbus-send --session --dest=org.kde.plasmashell --type=method_call /PlasmaShell org.kde.PlasmaShell.evaluateScript 'string:
+              var Desktops = desktops();                                                                                                                       
+              f or (i=0;i<Desktops.length;i++) {
+               d = Desktops[i];
+               d.wallpaperPlugin = "org.kde.image";
+               d.currentConfigGroup = Array("Wallpaper",
+                                    "org.kde.image",
+                                    "General");
+             d.writeConfig("Image", "file:///home/"$USER"/based/wallpaper.jpg");
+            }'
             echo "this will install cursor"
             echo "select in global theme in settings!"
             sleep 2s
@@ -137,6 +146,7 @@ git clone https://github.com/vinceliuice/Orchis-theme.git
             ./install.sh
             sudo apt install gnome-tweak-tool 
             sudo apt --fix-missing install 
+            gsettings set org.gnome.desktop.background picture-uri  file:///home/"$USER"/based/wallpaper.jpg
              break
             ;;
         "Taco")
