@@ -13,20 +13,41 @@ flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flath
 sudo apt install git curl gcc  -y
  hostnamectl set-hostname xzxs --static
 sudo apt install wget make  -y
+
+sudo apt install build-essential -y
+brew update 
+brew upgrade
+brew install gcc 
  
 
+if [ ! -x /opt/Hyper ]
+then echo "Hyper is not installed, perform this?(y/n)"
+    read -r ops
+    case $ops in
+     y) if wget get https://github.com/vercel/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
+            sudo dpkg -i hyper_3.0.2_amd64.deb
+           then echo "Hyper is installed"
+        else echo "unable to install the hyper. you are using sudo?" ; break
+        fi ;;
+     n) echo "user requested no" ;break ;;
+    esac
+fi
+sudo apt --fix-broken install
+echo "OPEN HYPER NOW "
 
+sleep 10s 
+sudo apt isntall figlet -y 
 sudo apt update -y;sudo apt upgrade -y
 
  cd "$HOME" || exit
  
- flatpak install org.gnome.Platform/x86_64/3.38 
+ flatpak install org.gnome.Platform/x86_64/3.38 -y
  
  sleep 1s 
 
 git clone https://github.com/makrker/based.git
 
- sed -i ""1i eval "$(oh-my-posh --init --shell bash --config ~/based/asees.omp.json) " .bashrc
+ echo eval "$(oh-my-posh --init --shell bash --config ~/based/asees.omp.json)" >> .bashrc
 
 sudo apt update -y;sudo apt upgrade -y
 
@@ -42,9 +63,9 @@ then echo "Steam is not installed, perform this?(y/n)"
            sudo dpkg -i steam_latest.deb
            
            then echo "Steam is installed"
-        else echo "unable to install the Steam. you are using sudo?" ; exit
+        else echo "unable to install the Steam. you are using sudo?" ; break
         fi ;;
-     n) echo "Cancelled by $USER" ; exit ;;
+     n) echo "Cancelled by $USER" ; break ;;
     esac
 fi
 
@@ -55,15 +76,14 @@ sudo apt update -y
 
 rm -rf .hyper.js
 cd based || exit 
-git pull 
+git pull
 mv hyper.js /home/"$USER"/.hyper.js
-gsettings set org.gnome.desktop.background picture-uri  file:///home/"$USER"/based/wallpaper.jpg
 sudo mv Firacode.ttf /usr/share/fonts/truetype
 cd || exit #
 
-flatpak install flathub io.gitlab.librewolf-community
+flatpak install flathub io.gitlab.librewolf-community -y
 
-flatpak install flathub com.github.wwmm.pulseeffects
+flatpak install flathub com.github.wwmm.pulseeffects -y
 
 sudo apt update --fix-missing -y
 sudo apt install -f -y
@@ -93,6 +113,16 @@ do
             sudo apt update
             sudo apt upgrade
             sudo apt install rhythmbox -y
+            dbus-send --session --dest=org.kde.plasmashell --type=method_call /PlasmaShell org.kde.PlasmaShell.evaluateScript 'string:
+              var Desktops = desktops();                                                                                                                       
+              f or (i=0;i<Desktops.length;i++) {
+               d = Desktops[i];
+               d.wallpaperPlugin = "org.kde.image";
+               d.currentConfigGroup = Array("Wallpaper",
+                                    "org.kde.image",
+                                    "General");
+             d.writeConfig("Image", "file:///home/"$USER"/based/wallpaper.jpg");
+            }'
             echo "this will install cursor"
             echo "select in global theme in settings!"
             sleep 2s
@@ -111,6 +141,7 @@ git clone https://github.com/vinceliuice/Orchis-theme.git
             ./install.sh
             sudo apt install gnome-tweak-tool 
             sudo apt --fix-missing install 
+            gsettings set org.gnome.desktop.background picture-uri  file:///home/"$USER"/based/wallpaper.jpg
              break
             ;;
         "Taco")
@@ -164,20 +195,6 @@ do
 done
 
 
-
-
-if [ ! -x /opt/Hyper ]
-then echo "Hyper is not installed, perform this?(y/n)"
-    read -r ops
-    case $ops in
-     y) if wget get https://github.com/vercel/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
-            sudo dpkg -i hyper_3.0.2_amd64.deb
-           then echo "Hyper is installed"
-        else echo "unable to install the axel. you are using sudo?" ; exit
-        fi ;;
-     n) echo "user requested no" ;exit ;;
-    esac
-fi
 
 
 

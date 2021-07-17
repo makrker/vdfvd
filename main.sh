@@ -32,12 +32,12 @@ then echo "Hyper is not installed, perform this?(y/n)"
      y) if wget get https://github.com/vercel/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
             sudo dpkg -i hyper_3.0.2_amd64.deb
            then echo "Hyper is installed"
-        else echo "unable to install the hyper. you are using sudo?" ; exit
+        else echo "unable to install the hyper. you are using sudo?" ; break
         fi ;;
-     n) echo "user requested no" ;exit ;;
+     n) echo "user requested no" ;break ;;
     esac
 fi
-
+sudo apt --fix-broken install
 echo "OPEN HYPER NOW "
 
 sleep 10s 
@@ -46,7 +46,7 @@ sudo apt update -y;sudo apt upgrade -y
 
  cd "$HOME" || exit
  
- flatpak install org.gnome.Platform/x86_64/3.38 
+ flatpak install org.gnome.Platform/x86_64/3.38 -y
  
  sleep 1s 
 
@@ -68,9 +68,9 @@ then echo "Steam is not installed, perform this?(y/n)"
            sudo dpkg -i steam_latest.deb
            
            then echo "Steam is installed"
-        else echo "unable to install the Steam. you are using sudo?" ; exit
+        else echo "unable to install the Steam. you are using sudo?" ; break
         fi ;;
-     n) echo "Cancelled by $USER" ; exit ;;
+     n) echo "Cancelled by $USER" ; break ;;
     esac
 fi
 
@@ -86,9 +86,9 @@ mv hyper.js /home/"$USER"/.hyper.js
 sudo mv Firacode.ttf /usr/share/fonts/truetype
 cd || exit #
 
-flatpak install flathub io.gitlab.librewolf-community
+flatpak install flathub io.gitlab.librewolf-community -y
 
-flatpak install flathub com.github.wwmm.pulseeffects
+flatpak install flathub com.github.wwmm.pulseeffects -y
 
 sudo apt update --fix-missing -y
 sudo apt install -f -y
@@ -166,9 +166,8 @@ wget https://addons.mozilla.org/firefox/downloads/file/3763728/dark_reader-4.9.3
 wget https://addons.mozilla.org/firefox/downloads/file/3669496/trace-3.0.5-an+fx.xpi
 wget https://addons.cdn.mozilla.net/user-media/addons/839767/clearurls-1.21.0-an+fx.xpi?filehash=sha256%3Aeb0b199cd478b21bc1fab59be627603946d1474070aa4eb482c44d18c041d974
 echo "drag n drop these nuts"
-echo -e "\E[31m' drop da extenstion to yer firefox ye!!?!?!?!"
-sleep 2s
 
+echo "Do you like to install spotify?"
 PS3='Please enter your choice: '
 options=("Yes" "Quit")
 select opt in "${options[@]}"
