@@ -25,19 +25,7 @@ brew upgrade
 brew install gcc 
  
 
-if [ ! -x /opt/Hyper ]
-then echo "Hyper is not installed, perform this?(y/n)"
-    read -r ops
-    case $ops in
-     y) if wget get https://github.com/vercel/hyper/releases/download/3.0.2/hyper_3.0.2_amd64.deb
-            sudo dpkg -i hyper_3.0.2_amd64.deb
-           then echo "Hyper is installed"
-        else echo "unable to install the hyper. you are using sudo?" ; break
-        fi ;;
-     n) echo "user requested no" ;break ;;
-    esac
-fi
-sudo apt --fix-broken install
+sudo apt --fix-broken install -y 
 echo "OPEN HYPER NOW "
 
 sleep 10s 
@@ -59,20 +47,6 @@ sudo apt update -y;sudo apt upgrade -y
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
  cd "$HOME" || exit
-
-if [ ! -x /usr/bin/steam ]
-then echo "Steam is not installed, perform this?(y/n)"
-    read -r ops
-    case $ops in
-     y) if wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
-           sudo dpkg -i steam_latest.deb
-           
-           then echo "Steam is installed"
-        else echo "unable to install the Steam. you are using sudo?" ; break
-        fi ;;
-     n) echo "Cancelled by $USER" ; break ;;
-    esac
-fi
 
 
 
@@ -118,16 +92,7 @@ do
             sudo apt update
             sudo apt upgrade
             sudo apt install rhythmbox -y
-            dbus-send --session --dest=org.kde.plasmashell --type=method_call /PlasmaShell org.kde.PlasmaShell.evaluateScript 'string:
-              var Desktops = desktops();                                                                                                                       
-              f or (i=0;i<Desktops.length;i++) {
-               d = Desktops[i];
-               d.wallpaperPlugin = "org.kde.image";
-               d.currentConfigGroup = Array("Wallpaper",
-                                    "org.kde.image",
-                                    "General");
-             d.writeConfig("Image", "file:///home/"$USER"/based/wallpaper.jpg");
-            }'
+            
             echo "this will install cursor"
             echo "select in global theme in settings!"
             sleep 2s
@@ -197,11 +162,55 @@ do
              *) echo "invalid option  stooped $REPLY";;
     esac
 done
+cd Desktop || exit
+ touch Spotify
+ echo "[Desktop Entry]
+Type=Application
+Name=Spotify (adblock)
+GenericName=Music Player
+Icon=spotify-client
+TryExec=spotify
+Exec=env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U
+Terminal=false
+MimeType=x-scheme-handler/spotify;
+Categories=Audio;Music;Player;AudioVideo;
+StartupWMClass=spotify" >> Spotify
+
+chmod +x Spotify
+
+if [ ! -x /usr/bin/steam ]
+then echo "Steam is not installed, perform this?(y/n)"
+    read -r ops
+    case $ops in
+     y) if wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
+           sudo dpkg -i steam_latest.deb
+           
+           then echo "Steam is installed"
+        else echo "unable to install the Steam. you are using sudo?" ; break
+        fi ;;
+     n) echo "Cancelled by $USER" ; break ;;
+    esac
+fi
 
 
 
 
 
+if [ ! -x /opt/Hyper ]
+then echo "Hyper is not installed, perform this?(y/n)"
+    read -r ops
+    case $ops in
+     y) if wget get https://github.com/vercel/hyper/releases/download/3.1.0/hyper_3.1.0_amd64.deb
+            sudo dpkg -i hyper_3.0.2_amd64.deb
+           then echo "Hyper is installed"
+        else echo "unable to install the hyper. you are using sudo?" ; break
+        fi ;;
+     n) echo "user requested no" ;break ;;
+    esac
+fi
+ 
+
+sudo apt --fix-broken install -y 
 
 
 figlet -f big "DONE INSTALLING PRECONFIGURED SHELLS

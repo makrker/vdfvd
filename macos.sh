@@ -17,7 +17,7 @@ mkdir Screenshot
  rm -rf .hyper.js
 git clone https://github.com/makrker/based.git 
 cd based || exit 
-mv hyper.js /Users/$USER/.hyper.js 
+mv hyper.js /Users/"$USER"/.hyper.js 
 sudo mv Firacode.ttf /Library/Fonts/
 osascript -e 'tell application "Finder" to set desktop picture to POSIX file "~/based/wallpaper.jpg"'
  echo "eval "$(oh-my-posh --init --shell bash --config ~/based/asees.omp.json) " " > .zshrc
