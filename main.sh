@@ -47,7 +47,6 @@ brew install gcc
 
 sudo apt update -y;sudo apt upgrade -y
  flatpak install flathub us.zoom.Zoom
-flatpak install flathub com.visualstudio.code-oss
 
 flatpak install flathub io.gitlab.librewolf-community -y
 
@@ -236,8 +235,10 @@ fi
  sudo apt autoremove -y
 
 sudo apt --fix-broken install -y 
-
-
+wget https://az764295.vo.msecnd.net/stable/c3f126316369cd610563c75b1b1725e0679adfb3/code_1.58.2-1626302803_amd64.deb
+sudo dpkg -i code_1.58.2-1626302803_amd64.deb
+sudo apt update -y 
+sudo apt upgrade -y 
 echo "Do you like to remove all deb files?"
 PS3='Please enter your choice: '
 options=("Yes" "No")
