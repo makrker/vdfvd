@@ -46,16 +46,10 @@ brew install gcc
 
 
 sudo apt update -y;sudo apt upgrade -y
- flatpak install flathub us.zoom.Zoom -y
 
 flatpak install flathub io.gitlab.librewolf-community -y
-
 flatpak install flathub com.github.wwmm.pulseeffects -y
-
- 
  flatpak install org.gnome.Platform/x86_64/3.38 -y
- 
-
 sudo apt update -y;sudo apt upgrade -y
 
 
