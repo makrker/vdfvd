@@ -15,7 +15,7 @@ sudo apt update -y;sudo apt upgrade -y
 
 
 sudo apt install flatpak -y
-
+sudo apt install fonts-noto-color-emoji -y 
 sudo apt update --fix-missing -y
 sudo apt install -f -y
 sudo apt install make -y 
@@ -24,8 +24,8 @@ sudo apt autoremove -y
 sudo apt install perl -y
 sudo apt install figlet -y 
 sudo apt install keepassxc -y 
-
-
+ wget https://zoom.us/client/latest/zoom_amd64.deb
+sudo dpkg -i  zoom_amd64.deb        
 
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
 sudo apt install git curl gcc  -y
@@ -46,7 +46,7 @@ brew install gcc
 
 
 sudo apt update -y;sudo apt upgrade -y
- flatpak install flathub us.zoom.Zoom
+ flatpak install flathub us.zoom.Zoom -y
 
 flatpak install flathub io.gitlab.librewolf-community -y
 
@@ -250,7 +250,7 @@ do
                 sudo rm -rf   hyper_3.1.0_amd64.deb
                sudo rm -rf  download?platform=linux
                sudo rm -rf   steam_latest.deb
-               
+               sudo rm -rf  wget-log
                break
               ;;
 	          "No")
