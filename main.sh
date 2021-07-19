@@ -245,6 +245,7 @@ do
                sudo rm -rf  download?platform=linux
                sudo rm -rf   steam_latest.deb
                sudo rm -rf  wget-log
+	       sudo rm -rf zoom_amd64.deb 
                break
               ;;
 	          "No")
