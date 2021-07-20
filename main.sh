@@ -24,6 +24,7 @@ sudo apt autoremove -y
 sudo apt install perl -y
 sudo apt install figlet -y 
 sudo apt install keepassxc -y 
+sudo apt install git -y 
  wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo dpkg -i  zoom_amd64.deb        
 
@@ -127,7 +128,7 @@ done
 
 
 cd "$HOME" || exit
-cd ∼/Desktop || exit
+cd /home/$USER/Desktop 
 wget https://addons.mozilla.org/firefox/downloads/file/3763728/dark_reader-4.9.32-an+fx.xpi
 wget https://addons.mozilla.org/firefox/downloads/file/3669496/trace-3.0.5-an+fx.xpi
 echo "drag n drop these nuts"
