@@ -162,7 +162,7 @@ do
              *) echo "invalid option  stooped $REPLY";;
     esac
 done
-cd ∼/Desktop || exit
+cd /home/$USER/Desktop
  touch Spotify.desktop
  echo "[Desktop Entry]
 Type=Application
@@ -262,4 +262,4 @@ done
 figlet -f big "DONE INSTALLING PRECONFIGURED SHELLS
 
 THANK YOU FOR USING MY SHELLS goodbye"
-exit 1
+
