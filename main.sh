@@ -256,8 +256,9 @@ do
     esac
 done
 
-
-
+sudo apt  --fix-broken install -y
+sudo apt update 
+sudo apt upgrade -y
 
 figlet -f big "DONE INSTALLING PRECONFIGURED SHELLS
 
