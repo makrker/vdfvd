@@ -132,7 +132,7 @@ cd /home/$USER/Desktop
 wget https://addons.mozilla.org/firefox/downloads/file/3763728/dark_reader-4.9.32-an+fx.xpi
 wget https://addons.mozilla.org/firefox/downloads/file/3669496/trace-3.0.5-an+fx.xpi
 echo "drag n drop these nuts"
-
+cd # 
 echo "Do you like to install spotify?"
 PS3='Please enter your choice: '
 options=("Yes" "Quit")
@@ -167,7 +167,7 @@ cd /home/$USER/Desktop
  touch Spotify.desktop
  echo "[Desktop Entry]
 Type=Application
-Name=Spotify (adblock)
+Name=Spotify (free mod apk no root premium no virus)
 GenericName=Music Player
 Icon=spotify-client
 TryExec=spotify
@@ -176,8 +176,23 @@ Terminal=false
 MimeType=x-scheme-handler/spotify;
 Categories=Audio;Music;Player;AudioVideo;
 StartupWMClass=spotify" >> Spotify.desktop
+chmod +x Spotify.desktop 
 
-chmod +x Spotify
+cd /home/$USER/.local/share/applications
+touch Spotify.desktop
+ echo "[Desktop Entry]
+Type=Application
+Name=Spotify (free mod apk no root premium no virus)
+GenericName=Music Player
+Icon=spotify-client
+TryExec=spotify
+Exec=env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U
+Terminal=false
+MimeType=x-scheme-handler/spotify;
+Categories=Audio;Music;Player;AudioVideo;
+StartupWMClass=spotify" >> Spotify.desktop
+chmod +x Spotify.desktop 
+
 cd #
 if [ ! -x /usr/bin/steam ]
 then echo "Steam is not installed, perform this?(y/n)"
@@ -198,8 +213,9 @@ then echo "Discord is not installed, perform this?(y/n)"
     read -r ops
     case $ops in
      y) if wget https://discord.com/api/download?platform=linux&format=deb
+        sleep 360s    
          sudo dpkg -i download?platform=linux
-
+        sudo apt --fix-broken install
            then echo "Discord is installed"
         else echo "Something is wrong or broken exiting.." ; break
         fi ;;
