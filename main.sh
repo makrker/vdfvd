@@ -12,8 +12,6 @@ sleep 1s
 
 
 sudo apt update -y;sudo apt upgrade -y
-
-
 sudo apt install flatpak -y
 sudo apt install fonts-noto-color-emoji -y 
 sudo apt update --fix-missing -y
@@ -24,28 +22,13 @@ sudo apt autoremove -y
 sudo apt install perl -y
 sudo apt install figlet -y 
 sudo apt install keepassxc -y 
+sudo apt install git curl gcc  -y
 sudo apt install git -y 
  wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo dpkg -i  zoom_amd64.deb        
-
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
-sudo apt install git curl gcc  -y
- hostnamectl set-hostname xzxs --static
-sudo apt install wget make  -y
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"< /dev/null
-
-
-
-echo "eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"" >> /home/"$USER"/.bashrc 
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+sudo apt install wget make  -y.
 sudo apt install build-essential -y
-brew update 
-brew upgrade
-brew install gcc 
- 
-
-
-
 sudo apt update -y;sudo apt upgrade -y
 
 flatpak install flathub io.gitlab.librewolf-community -y
@@ -146,7 +129,7 @@ do
             sudo apt update
             sudo apt --fix-broken install -y
             sudo apt install gcc -y
-            sudo apt install make -y
+            sudo apt install make -y d
              git clone https://github.com/abba23/spotify-adblock-linux.git
              cd spotify-adblock-linux || exit
               wget -O cef.tar.bz2 https://cef-builds.spotifycdn.com/cef_binary_88.1.6%2Bg4fe33a1%2Bchromium-88.0.4324.96_linux64_minimal.tar.bz2
