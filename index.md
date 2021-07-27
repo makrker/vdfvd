@@ -5,7 +5,7 @@ Only APT linux distros !!!!
 
 To start this shell that configure linux machine
 
-```markdown
-curl https://raw.githubusercontent.com/makrker/vdfvd/main/start.sh | bash
+
+>curl https://raw.githubusercontent.com/makrker/vdfvd/main/start.sh | bash
 
 
