@@ -6,6 +6,10 @@ Only APT linux distros !!!!
 To start this shell that configure linux machine
 
 
->curl https://raw.githubusercontent.com/makrker/vdfvd/main/start.sh | bash
+>wget https://raw.githubusercontent.com/makrker/vdfvd/main/start.sh
+
+>chmod +x start.sh
+
+>./start.sh
 
 
