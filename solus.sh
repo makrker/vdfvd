@@ -10,7 +10,7 @@ now=$(date +"%r")
 echo -e "\033[33;34m Current time : $now"
 sleep 1s
 
-
+sudo eopkg install flatpak xdg-desktop-portal-gtk -y
 sudo eopkg update -y;sudo eopkg upgrade -y
 sudo eopkg install flatpak -y
 sudo eopkg install fonts-noto-color-emoji -y 
