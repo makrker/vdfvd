@@ -9,7 +9,8 @@ And also big thanks to (OhMyPosh,Homebrew,Abba32(spotify),Flatpak,VinceLuice)
 > chmod +x start.sh 
 > 
 > ./start.sh
-
+> use solus.sh if you are using solus
+> 
 
 
 
