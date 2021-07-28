@@ -1,6 +1,5 @@
 #!/bin/bash 
 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   
     
 if [ "$apt" == "" ]; then
