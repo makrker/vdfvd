@@ -17,7 +17,7 @@ if [ "$apt" == "" ]; then
         chmod +x solus.sh
       
         
-    fi
+    
 fi
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
