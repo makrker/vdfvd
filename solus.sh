@@ -24,9 +24,8 @@ sudo eopkg install figlet -y
 sudo eopkg install keepassxc -y 
 sudo eopkg install git curl gcc  -y
 sudo eopkg install git -y 
- wget https://zoom.us/client/latest/zoom_amd64.deb
-sudo dpkg -i  zoom_amd64.deb        
-flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
+ sudo eopkg install rust -y  
+sudo flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
 sudo eopkg install wget make  -y.
 sudo eopkg install build-essential -y
 sudo eopkg update -y;sudo eopkg upgrade -y
@@ -36,12 +35,17 @@ flatpak install flathub com.github.wwmm.pulseeffects -y
  flatpak install org.gnome.Platform/x86_64/3.38 -y
 sudo eopkg update -y;sudo eopkg upgrade -y
 
+flatpak install flathub io.atom.Atom -y
 
  
 
 sudo eopkg update -y;sudo eopkg upgrade -y
  cd "$HOME" || exit
 git clone https://github.com/makrker/based.git
+cd based 
+  sudo mv Firacode.ttf /usr/share/fonts/truetype
+  cd # 
+  
 
 sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
 sudo chmod +x /usr/local/bin/oh-my-posh
@@ -123,18 +127,15 @@ select opt in "${options[@]}"
 do
     case $opt in
         "Yes")
-            wget http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.1.55.498.gf9a83c60_amd64.deb
-            sudo dpkg -i spotify-client_1.1.55.498.gf9a83c60_amd64.deb
+          flatpak install flathub com.spotify.Client -y
+           
             sudo eopkg --fix-broken install -y
             sudo eopkg update
             sudo eopkg --fix-broken install -y
             sudo eopkg install gcc -y
             sudo eopkg install make -y d
-             git clone https://github.com/abba23/spotify-adblock-linux.git
+             git clone https://github.com/abba23/spotify-adblock.git
              cd spotify-adblock-linux || exit
-              wget -O cef.tar.bz2 https://cef-builds.spotifycdn.com/cef_binary_88.1.6%2Bg4fe33a1%2Bchromium-88.0.4324.96_linux64_minimal.tar.bz2
-             tar -xf cef.tar.bz2 --wildcards '*/include' --strip-components=1
-               make
                sudo make install
                
                break
@@ -150,11 +151,10 @@ cd /home/$USER/Desktop
  touch Spotify.desktop
  echo "[Desktop Entry]
 Type=Application
-Name=Spotify (free mod apk no root premium no virus)
+Name=Spotify (adblock)
 GenericName=Music Player
-Icon=spotify-client
-TryExec=spotify
-Exec=env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U
+Icon=com.spotify.Client
+Exec=flatpak run --file-forwarding --command=sh com.spotify.Client -c 'eval "$(sed s#LD_PRELOAD=#LD_PRELOAD=$HOME/.spotify-adblock/spotify-adblock.so:#g /app/bin/spotify)"' @@u %U @@
 Terminal=false
 MimeType=x-scheme-handler/spotify;
 Categories=Audio;Music;Player;AudioVideo;
@@ -165,11 +165,10 @@ cd /home/$USER/.local/share/applications
 touch Spotify.desktop
  echo "[Desktop Entry]
 Type=Application
-Name=Spotify (free mod apk no root premium no virus)
+Name=Spotify (adblock)
 GenericName=Music Player
-Icon=spotify-client
-TryExec=spotify
-Exec=env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U
+Icon=com.spotify.Client
+Exec=flatpak run --file-forwarding --command=sh com.spotify.Client -c 'eval "$(sed s#LD_PRELOAD=#LD_PRELOAD=$HOME/.spotify-adblock/spotify-adblock.so:#g /app/bin/spotify)"' @@u %U @@
 Terminal=false
 MimeType=x-scheme-handler/spotify;
 Categories=Audio;Music;Player;AudioVideo;
@@ -181,8 +180,8 @@ if [ ! -x /usr/bin/steam ]
 then echo "Steam is not installed, perform this?(y/n)"
     read -r ops
     case $ops in
-     y) if wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
-           sudo dpkg -i steam_latest.deb
+     y) if 
+         sudo eopkg steam -y 
            
            then echo "Steam is installed"
         else echo "Something is wrong or broken exiting.." ; break
@@ -195,10 +194,7 @@ if [ ! -x /usr/share/discord ]
 then echo "Discord is not installed, perform this?(y/n)"
     read -r ops
     case $ops in
-     y) if wget https://discord.com/api/download?platform=linux&format=deb
-        sleep 360s    
-         sudo dpkg -i download?platform=linux
-        sudo eopkg --fix-broken install
+     y) if flatpak install flathub com.discordapp.Discord -y
            then echo "Discord is installed"
         else echo "Something is wrong or broken exiting.." ; break
         fi ;;
@@ -229,8 +225,6 @@ fi
  sudo eopkg autoremove -y
 
 sudo eopkg --fix-broken install -y 
-wget https://az764295.vo.msecnd.net/stable/c3f126316369cd610563c75b1b1725e0679adfb3/code_1.58.2-1626302803_amd64.deb
-sudo dpkg -i code_1.58.2-1626302803_amd64.deb
 sudo eopkg update -y 
 sudo eopkg upgrade -y 
 echo "Do you like to remove all deb files?"
