@@ -23,11 +23,12 @@ sudo apt install perl -y
 sudo apt install figlet -y 
 sudo apt install keepassxc -y 
 sudo apt install git curl gcc  -y
-sudo apt install git -y 
+sudo apt install git -y
+sudo apt install cargo -y 
  wget https://zoom.us/client/latest/zoom_amd64.deb
 sudo dpkg -i  zoom_amd64.deb        
 flatpak remote-add --user --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo 
-sudo apt install wget make  -y.
+sudo apt install wget make  -y
 sudo apt install build-essential -y
 sudo apt update -y;sudo apt upgrade -y
 
@@ -46,6 +47,7 @@ git clone https://github.com/makrker/based.git
 sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
 sudo chmod +x /usr/local/bin/oh-my-posh
  echo eval "$(oh-my-posh --init --shell bash --config ~/based/asees.omp.json)" >> .bashrc
+ echo eval "$(oh-my-posh --init --shell zsh --config ~/jandedobbeleer.omp.json)" >>.zshrc
 sudo apt update -y;sudo apt upgrade -
 sudo apt update -y
 
@@ -130,10 +132,8 @@ do
             sudo apt --fix-broken install -y
             sudo apt install gcc -y
             sudo apt install make -y d
-             git clone https://github.com/abba23/spotify-adblock-linux.git
-             cd spotify-adblock-linux || exit
-              wget -O cef.tar.bz2 https://cef-builds.spotifycdn.com/cef_binary_88.1.6%2Bg4fe33a1%2Bchromium-88.0.4324.96_linux64_minimal.tar.bz2
-             tar -xf cef.tar.bz2 --wildcards '*/include' --strip-components=1
+              git clone https://github.com/abba23/spotify-adblock.git
+              cd spotify-adblock
                make
                sudo make install
                
@@ -255,7 +255,7 @@ do
              *) echo "invalid option  stooped $REPLY";;
     esac
 done
-
+sudo apt autoremove
 sudo apt  --fix-broken install -y
 sudo apt update 
 sudo apt upgrade -y
