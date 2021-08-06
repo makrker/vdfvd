@@ -206,19 +206,19 @@ then echo "Discord is not installed, perform this?(y/n)"
     esac
 fi
 
-
+ sudo mv Firacode.ttf /usr/share/fonts/truetype
 
 if [ ! -x /opt/Hyper ]
 then echo "Hyper is not installed, perform this?(y/n)"
     read -r ops
     case $ops in
-     y) if wget get https://github.com/vercel/hyper/releases/download/3.1.0/hyper_3.1.0_amd64.deb
-            sudo dpkg -i hyper_3.1.0_amd64.deb
+     y) if https://github-releases.githubusercontent.com/62367558/6387d7b9-07a3-451e-a558-504674267f97?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20210806%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210806T135334Z&X-Amz-Expires=300&X-Amz-Signature=c8343ae6939beb8def94cb35097f30e4ac7055a95895a0f88aa6884e3ff3416d&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=62367558&response-content-disposition=attachment%3B%20filename%3Dhyper_3.1.2_amd64.deb&response-content-type=application%2Foctet-stream
+            sudo dpkg -i hyper_3.1.2_amd64.deb
             rm -rf .hyper.js
             cd based || exit 
             git pull
             mv hyper.js /home/"$USER"/.hyper.js
-            sudo mv Firacode.ttf /usr/share/fonts/truetype
+           
 
            then echo "Hyper is installed"
         else echo "Something is wrong or broken exiting.." ; break
