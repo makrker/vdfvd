@@ -114,8 +114,7 @@ done
 
 cd "$HOME" || exit
 cd /home/$USER/Desktop 
-wget https://addons.mozilla.org/firefox/downloads/file/3763728/dark_reader-4.9.32-an+fx.xpi
-wget https://addons.mozilla.org/firefox/downloads/file/3669496/trace-3.0.5-an+fx.xpi
+
 echo "drag n drop these nuts"
 cd # 
 echo "Do you like to install spotify?"
@@ -206,7 +205,7 @@ then echo "Discord is not installed, perform this?(y/n)"
     esac
 fi
 
- sudo mv Firacode.ttf /usr/share/fonts/truetype
+ sudo mv /home/"$USER"/based/Firacode.ttf /usr/share/fonts/truetype
 
 if [ ! -x /opt/Hyper ]
 then echo "Hyper is not installed, perform this?(y/n)"
