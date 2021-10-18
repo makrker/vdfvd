@@ -37,7 +37,7 @@ flatpak install flathub com.github.wwmm.pulseeffects -y
  flatpak install org.gnome.Platform/x86_64/3.38 -y
 sudo apt update -y;sudo apt upgrade -y
 
-
+flatpak install flathub com.visualstudio.code -y 
  
 
 sudo apt update -y;sudo apt upgrade -y
@@ -57,12 +57,7 @@ sudo apt install -f -y
 
 sudo apt autoremove -y
 
-PS3='Please enter your choice: '
-options=("KDE Plasma" "Gnome" "MATE" "Quit")
-select opt in "${options[@]}"
-do
-    case $opt in
-        "KDE Plasma")
+
              git clone https://github.com/vinceliuice/ChromeOS-kde.git
             cd ChromeOS-kde || exit
             ./install.sh
@@ -111,20 +106,7 @@ git clone https://github.com/vinceliuice/Orchis-theme.git
     esac
 done
 
-
-cd "$HOME" || exit
-cd /home/$USER/Desktop 
-
-echo "drag n drop these nuts"
-cd # 
-echo "Do you like to install spotify?"
-PS3='Please enter your choice: '
-options=("Yes" "Quit")
-select opt in "${options[@]}"
-do
-    case $opt in
-        "Yes")
-            wget http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.1.55.498.gf9a83c60_amd64.deb
+wget http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.1.55.498.gf9a83c60_amd64.deb
             sudo dpkg -i spotify-client_1.1.55.498.gf9a83c60_amd64.deb
             sudo apt --fix-broken install -y
             sudo apt update
@@ -136,18 +118,9 @@ do
                make
                sudo make install
                
-               break
-              ;;
-	          "Quit")
-	          echo "User requested exit"
-	           break
-               	    ;;
-             *) echo "invalid option  stooped $REPLY";;
-    esac
-done
-cd /home/$USER/Desktop
- touch Spotify.desktop
- echo "[Desktop Entry]
+
+touch ls
+echo '[Desktop Entry]
 Type=Application
 Name=Spotify (free mod apk no root premium no virus)
 GenericName=Music Player
@@ -157,88 +130,27 @@ Exec=env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U
 Terminal=false
 MimeType=x-scheme-handler/spotify;
 Categories=Audio;Music;Player;AudioVideo;
-StartupWMClass=spotify" >> Spotify.desktop
-chmod +x Spotify.desktop 
+StartupWMClass=spotify' >> ls
 
-cd /home/$USER/.local/share/applications
-touch Spotify.desktop
- echo "[Desktop Entry]
-Type=Application
-Name=Spotify (free mod apk no root premium no virus)
-GenericName=Music Player
-Icon=spotify-client
-TryExec=spotify
-Exec=env LD_PRELOAD=/usr/local/lib/spotify-adblock.so spotify %U
-Terminal=false
-MimeType=x-scheme-handler/spotify;
-Categories=Audio;Music;Player;AudioVideo;
-StartupWMClass=spotify" >> Spotify.desktop
-chmod +x Spotify.desktop 
 
+
+sudo touch /usr/share/applications/spot.desktop
+sudo tee -a /usr/share/applications/spot.desktop < ls
+sudo chmod +x /usr/share/applications/spot.desktop
 cd #
-if [ ! -x /usr/bin/steam ]
-then echo "Steam is not installed, perform this?(y/n)"
-    read -r ops
-    case $ops in
-     y) if wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
+wget https://repo.steampowered.com/steam/archive/precise/steam_latest.deb
            sudo dpkg -i steam_latest.deb
            
-           then echo "Steam is installed"
-        else echo "Something is wrong or broken exiting.." ; break
-        fi ;;
-     n) echo "Cancelled by $USER" ; break ;;
-    esac
-fi
-
-if [ ! -x /usr/share/discord ]
-then echo "Discord is not installed, perform this?(y/n)"
-    read -r ops
-    case $ops in
-     y) if wget https://discord.com/api/download?platform=linux&format=deb
-        sleep 360s    
-         sudo dpkg -i download?platform=linux
+          
+https://dl.discordapp.net/apps/linux/0.0.16/discord-0.0.16.deb
+sudo dpkg -i discord-0.0.16.deb
         sudo apt --fix-broken install
-           then echo "Discord is installed"
-        else echo "Something is wrong or broken exiting.." ; break
-        fi ;;
-     n) echo "user requested no" ;break ;;
-    esac
-fi
-
- sudo mv /home/"$USER"/based/Firacode.ttf /usr/share/fonts/truetype
-
-if [ ! -x /opt/Hyper ]
-then echo "Hyper is not installed, perform this?(y/n)"
-    read -r ops
-    case $ops in
-     y) if https://github-releases.githubusercontent.com/62367558/6387d7b9-07a3-451e-a558-504674267f97?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20210806%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20210806T135334Z&X-Amz-Expires=300&X-Amz-Signature=c8343ae6939beb8def94cb35097f30e4ac7055a95895a0f88aa6884e3ff3416d&X-Amz-SignedHeaders=host&actor_id=0&key_id=0&repo_id=62367558&response-content-disposition=attachment%3B%20filename%3Dhyper_3.1.2_amd64.deb&response-content-type=application%2Foctet-stream
-            sudo dpkg -i hyper_3.1.2_amd64.deb
-            rm -rf .hyper.js
-            cd based || exit 
-            git pull
-            mv hyper.js /home/"$USER"/.hyper.js
-           
-
-           then echo "Hyper is installed"
-        else echo "Something is wrong or broken exiting.." ; break
-        fi ;;
-     n) echo "user requested no" ;break ;;
-    esac
-fi
- sudo apt autoremove -y
-
-sudo apt --fix-broken install -y 
-wget https://az764295.vo.msecnd.net/stable/c3f126316369cd610563c75b1b1725e0679adfb3/code_1.58.2-1626302803_amd64.deb
+         
+725e0679adfb3/code_1.58.2-1626302803_amd64.deb
 sudo dpkg -i code_1.58.2-1626302803_amd64.deb
 sudo apt update -y 
 sudo apt upgrade -y 
-echo "Do you like to remove all deb files?"
-PS3='Please enter your choice: '
-options=("Yes" "No")
-select opt in "${options[@]}"
-do
-    case $opt in
-        "Yes")
+
             sudo rm -rf spotify-client_1.1.55.498.gf9a83c60_amd64
                 sudo rm -rf   hyper_3.1.0_amd64.deb
                sudo rm -rf  download?platform=linux
@@ -247,13 +159,7 @@ do
 	       sudo rm -rf zoom_amd64.deb 
                break
               ;;
-	          "No")
-	          echo "User requested exit"
-	           break
-               	    ;;
-             *) echo "invalid option  stooped $REPLY";;
-    esac
-done
+	    
 sudo apt autoremove
 sudo apt  --fix-broken install -y
 sudo apt update 
